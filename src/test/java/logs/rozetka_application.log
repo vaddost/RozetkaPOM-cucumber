@@ -1,0 +1,10 @@
+2021-12-11 11:52:52,042  INFO [main] BaseTests:27 - ChromeDriver was started successfully.
+2021-12-11 11:52:54,446  INFO [main] BaseTests:30 - User is navigated to https://rozetka.com.ua/
+2021-12-11 11:52:54,450  INFO [main] TestNGEventListener:20 - testAddProductToCart( 'Ноутбуки' 'HP' '200000' ) test case is STARTED
+2021-12-11 11:52:54,965  INFO [main] BaseTests:46 - User is on Search Results Page for search phrase: 'Ноутбуки'
+2021-12-11 11:53:18,900  INFO [main] BaseTests:54 - User is on Product Details Page
+2021-12-11 11:53:24,286  INFO [main] BaseTests:57 - User added product to the Cart
+2021-12-11 11:53:29,447  INFO [main] BaseTests:63 - Assert: Product is added to the Cart - SUCCESS
+2021-12-11 11:53:29,459  INFO [main] BaseTests:67 - Assert: Actual total price is less than expected - SUCCESS
+2021-12-11 11:53:29,462  INFO [main] TestNGEventListener:25 - testAddProductToCart test case is PASSED
+2021-12-11 11:53:29,573  INFO [main] BaseTests:36 - ChromeDriver is closed
