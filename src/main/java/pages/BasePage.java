@@ -21,9 +21,7 @@ public class BasePage {
     }
 
     void waitUntilVisibilityOfElement(WebElement element){
-//        new WebDriverWait(driver, Duration.ofSeconds(30))
-//                .until(ExpectedConditions.visibilityOf(element));
-        new FluentWait<WebDriver>(driver)
+        new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(StaleElementReferenceException.class, NoSuchElementException.class)
@@ -31,9 +29,7 @@ public class BasePage {
     }
 
     void waitUntilVisibilityOfAllElements(List<WebElement> elements){
-//        new WebDriverWait(driver, Duration.ofSeconds(30))
-//                .until(ExpectedConditions.visibilityOfAllElements(elements));
-        new FluentWait<WebDriver>(driver)
+        new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(StaleElementReferenceException.class, NoSuchElementException.class)
