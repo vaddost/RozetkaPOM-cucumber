@@ -1,8 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -63,6 +61,7 @@ public class SearchResultsPage extends BasePage{
         for (var sellStatusFilterLink : sellStatusFilterLinksList){
             waitUntilVisibilityOfElement(sellStatusFilterLink);
             if (sellStatusFilterLink.getAttribute("href").contains("sell_status=available")){
+                waitUntilElementIsClickable(sellStatusFilterLink);
                 actions.moveToElement(sellStatusFilterLink).perform();
                 sellStatusFilterLink.click();
                 break;
@@ -71,10 +70,10 @@ public class SearchResultsPage extends BasePage{
     }
 
     public void clickOnFirstProduct(){
-        waitUntilVisibilityOfElement(firstProductTileHeadingLink);
         Actions actions = new Actions(driver);
-        actions.moveToElement(firstProductTileHeadingLink).perform();
+        waitUntilVisibilityOfElement(firstProductTileHeadingLink);
         waitUntilElementIsClickable(firstProductTileHeadingLink);
+        actions.moveToElement(firstProductTileHeadingLink).perform();
         firstProductTileHeadingLink.click();
     }
 }

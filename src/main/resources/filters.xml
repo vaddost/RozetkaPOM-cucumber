@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<filters>
+    <filter>
+        <id>1</id>
+        <category>Ноутбуки</category>
+        <brand>HP</brand>
+        <totalPrice>200000</totalPrice>
+    </filter>
+    <filter>
+        <id>2</id>
+        <category>Холодильники</category>
+        <brand>Samsung</brand>
+        <totalPrice>130000</totalPrice>
+    </filter>
+    <filter>
+        <id>3</id>
+        <category>Смартфони</category>
+        <brand>Apple</brand>
+        <totalPrice>100000</totalPrice>
+    </filter>
+    <filter>
+        <id>4</id>
+        <category>Книги</category>
+        <brand>Freedom</brand>
+        <totalPrice>2000</totalPrice>
+    </filter>
+    <filter>
+        <id>5</id>
+        <category>Велосипед</category>
+        <brand>Discovery</brand>
+        <totalPrice>10000</totalPrice>
+    </filter>
+</filters>

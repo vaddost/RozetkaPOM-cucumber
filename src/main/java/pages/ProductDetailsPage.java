@@ -27,7 +27,8 @@ public class ProductDetailsPage extends BasePage{
     }
 
     public String getProductTitle(){
-        waitUntilVisibilityOfElement(productTitle);Actions actions = new Actions(driver);
+        waitUntilVisibilityOfElement(productTitle);
+        Actions actions = new Actions(driver);
         actions.moveToElement(productTitle).perform();
         return productTitle.getText();
     }

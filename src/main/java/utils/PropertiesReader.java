@@ -13,6 +13,7 @@ public class PropertiesReader {
     private String chromeDriverName;
     private String url;
     private String chromeDriverPath;
+    private String screenshotFolderPath;
 
     public PropertiesReader() {
         Properties prop = new Properties();
@@ -21,6 +22,7 @@ public class PropertiesReader {
             this.chromeDriverName = prop.getProperty("CHROME_DRIVER_NAME");
             this.chromeDriverPath = prop.getProperty("CHROME_DRIVER_PATH");
             this.url = prop.getProperty("URL");
+            this.screenshotFolderPath=prop.getProperty("SCREENSHOT_FOLDER_PATH");
         } catch (FileNotFoundException e) {
             log.error("config.properties file is not found in /resources folder: " + e.getMessage());
             e.printStackTrace();
@@ -40,5 +42,9 @@ public class PropertiesReader {
 
     public String getChromeDriverPath() {
         return chromeDriverPath;
+    }
+
+    public String getScreenshotFolderPath(){
+        return screenshotFolderPath;
     }
 }

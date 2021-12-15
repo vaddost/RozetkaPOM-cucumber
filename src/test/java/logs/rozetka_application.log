@@ -1,10 +1,35 @@
-2021-12-11 11:52:52,042  INFO [main] BaseTests:27 - ChromeDriver was started successfully.
-2021-12-11 11:52:54,446  INFO [main] BaseTests:30 - User is navigated to https://rozetka.com.ua/
-2021-12-11 11:52:54,450  INFO [main] TestNGEventListener:20 - testAddProductToCart( 'Ноутбуки' 'HP' '200000' ) test case is STARTED
-2021-12-11 11:52:54,965  INFO [main] BaseTests:46 - User is on Search Results Page for search phrase: 'Ноутбуки'
-2021-12-11 11:53:18,900  INFO [main] BaseTests:54 - User is on Product Details Page
-2021-12-11 11:53:24,286  INFO [main] BaseTests:57 - User added product to the Cart
-2021-12-11 11:53:29,447  INFO [main] BaseTests:63 - Assert: Product is added to the Cart - SUCCESS
-2021-12-11 11:53:29,459  INFO [main] BaseTests:67 - Assert: Actual total price is less than expected - SUCCESS
-2021-12-11 11:53:29,462  INFO [main] TestNGEventListener:25 - testAddProductToCart test case is PASSED
-2021-12-11 11:53:29,573  INFO [main] BaseTests:36 - ChromeDriver is closed
+2021-12-15 19:39:10,780  INFO [TestNG-PoolService-0] TestNGEventListener:30 - testAddProductToCart( '1' 'Ноутбуки' 'HP' '200000' ) test case is STARTED
+2021-12-15 19:39:11,020  INFO [TestNG-PoolService-1] TestNGEventListener:30 - testAddProductToCart( '2' 'Холодильники' 'Samsung' '130000' ) test case is STARTED
+2021-12-15 19:39:11,081  INFO [TestNG-PoolService-2] TestNGEventListener:30 - testAddProductToCart( '3' 'Смартфони' 'Apple' '100000' ) test case is STARTED
+2021-12-15 19:39:12,043  INFO [TestNG-PoolService-2] BaseTests:54 - Filter ID - 3: User is on Search Results Page for search phrase: 'Смартфони'
+2021-12-15 19:39:17,562  INFO [TestNG-PoolService-0] BaseTests:54 - Filter ID - 1: User is on Search Results Page for search phrase: 'Ноутбуки'
+2021-12-15 19:39:17,991  INFO [TestNG-PoolService-1] BaseTests:54 - Filter ID - 2: User is on Search Results Page for search phrase: 'Холодильники'
+2021-12-15 19:39:39,017  INFO [TestNG-PoolService-2] BaseTests:62 - Filter ID - 3: User is on Product Details Page
+2021-12-15 19:39:42,297  INFO [TestNG-PoolService-0] BaseTests:62 - Filter ID - 1: User is on Product Details Page
+2021-12-15 19:39:43,470  INFO [TestNG-PoolService-1] BaseTests:62 - Filter ID - 2: User is on Product Details Page
+2021-12-15 19:39:44,586  INFO [TestNG-PoolService-2] BaseTests:65 - Filter ID - 3: User added product to the Cart
+2021-12-15 19:39:47,697  INFO [TestNG-PoolService-0] BaseTests:65 - Filter ID - 1: User added product to the Cart
+2021-12-15 19:39:48,823  INFO [TestNG-PoolService-1] BaseTests:65 - Filter ID - 2: User added product to the Cart
+2021-12-15 19:39:49,960  INFO [TestNG-PoolService-2] BaseTests:71 - Filter ID - 3: Assert: Product is added to the Cart - SUCCESS
+2021-12-15 19:39:49,967  INFO [TestNG-PoolService-2] BaseTests:75 - Filter ID - 3: Assert: Actual total price is less than expected - SUCCESS
+2021-12-15 19:39:49,971  INFO [TestNG-PoolService-2] TestNGEventListener:35 - testAddProductToCart( '3' 'Смартфони' 'Apple' '100000' ) test case is PASSED
+2021-12-15 19:39:52,873  INFO [TestNG-PoolService-0] BaseTests:71 - Filter ID - 1: Assert: Product is added to the Cart - SUCCESS
+2021-12-15 19:39:52,875  INFO [TestNG-PoolService-0] BaseTests:75 - Filter ID - 1: Assert: Actual total price is less than expected - SUCCESS
+2021-12-15 19:39:52,876  INFO [TestNG-PoolService-0] TestNGEventListener:35 - testAddProductToCart( '1' 'Ноутбуки' 'HP' '200000' ) test case is PASSED
+2021-12-15 19:39:54,318  INFO [TestNG-PoolService-1] BaseTests:71 - Filter ID - 2: Assert: Product is added to the Cart - SUCCESS
+2021-12-15 19:39:54,318  INFO [TestNG-PoolService-1] BaseTests:75 - Filter ID - 2: Assert: Actual total price is less than expected - SUCCESS
+2021-12-15 19:39:54,318  INFO [TestNG-PoolService-1] TestNGEventListener:35 - testAddProductToCart( '2' 'Холодильники' 'Samsung' '130000' ) test case is PASSED
+2021-12-15 19:39:54,860  INFO [TestNG-PoolService-2] TestNGEventListener:30 - testAddProductToCart( '4' 'Книги' 'Freedom' '2000' ) test case is STARTED
+2021-12-15 19:39:55,724  INFO [TestNG-PoolService-2] BaseTests:54 - Filter ID - 4: User is on Search Results Page for search phrase: 'Книги'
+2021-12-15 19:39:57,823  INFO [TestNG-PoolService-0] TestNGEventListener:30 - testAddProductToCart( '5' 'Велосипед' 'Discovery' '10000' ) test case is STARTED
+2021-12-15 19:40:01,548  INFO [TestNG-PoolService-0] BaseTests:54 - Filter ID - 5: User is on Search Results Page for search phrase: 'Велосипед'
+2021-12-15 19:40:21,922  INFO [TestNG-PoolService-0] BaseTests:62 - Filter ID - 5: User is on Product Details Page
+2021-12-15 19:40:27,299  INFO [TestNG-PoolService-0] BaseTests:65 - Filter ID - 5: User added product to the Cart
+2021-12-15 19:40:32,465  INFO [TestNG-PoolService-0] BaseTests:71 - Filter ID - 5: Assert: Product is added to the Cart - SUCCESS
+2021-12-15 19:40:32,465  INFO [TestNG-PoolService-0] BaseTests:75 - Filter ID - 5: Assert: Actual total price is less than expected - SUCCESS
+2021-12-15 19:40:32,466  INFO [TestNG-PoolService-0] TestNGEventListener:35 - testAddProductToCart( '5' 'Велосипед' 'Discovery' '10000' ) test case is PASSED
+2021-12-15 19:40:34,711  INFO [TestNG-PoolService-2] BaseTests:62 - Filter ID - 4: User is on Product Details Page
+2021-12-15 19:40:40,106  INFO [TestNG-PoolService-2] BaseTests:65 - Filter ID - 4: User added product to the Cart
+2021-12-15 19:40:45,273  INFO [TestNG-PoolService-2] BaseTests:71 - Filter ID - 4: Assert: Product is added to the Cart - SUCCESS
+2021-12-15 19:40:45,273  INFO [TestNG-PoolService-2] BaseTests:75 - Filter ID - 4: Assert: Actual total price is less than expected - SUCCESS
+2021-12-15 19:40:45,273  INFO [TestNG-PoolService-2] TestNGEventListener:35 - testAddProductToCart( '4' 'Книги' 'Freedom' '2000' ) test case is PASSED

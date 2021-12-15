@@ -5,6 +5,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Filter {
+    private int id;
     private String category;
     private String brand;
     private int totalPrice;
@@ -13,7 +14,8 @@ public class Filter {
 
     }
 
-    public Filter(String category, String brand, int totalPrice) {
+    public Filter(int id, String category, String brand, int totalPrice) {
+        this.id = id;
         this.category = category;
         this.brand = brand;
         this.totalPrice = totalPrice;
@@ -44,5 +46,24 @@ public class Filter {
     @XmlElement
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    @XmlElement
+    public void setId(int id){
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Filter{" +
+                "id=" + id +
+                ", category='" + category + '\'' +
+                ", brand='" + brand + '\'' +
+                ", totalPrice=" + totalPrice +
+                '}';
     }
 }

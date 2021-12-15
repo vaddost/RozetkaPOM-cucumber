@@ -1,13 +1,9 @@
 package pages;
 
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
@@ -24,7 +20,7 @@ public class BasePage {
         new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
-                .ignoring(StaleElementReferenceException.class, NoSuchElementException.class)
+                .ignoring(WebDriverException.class)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -32,12 +28,15 @@ public class BasePage {
         new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
-                .ignoring(StaleElementReferenceException.class, NoSuchElementException.class)
+                .ignoring(WebDriverException.class)
                 .until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
     void waitUntilElementIsClickable(WebElement element){
-        new WebDriverWait(driver, Duration.ofSeconds(30))
+        new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(WebDriverException.class)
                 .until(ExpectedConditions.elementToBeClickable(element));
     }
 

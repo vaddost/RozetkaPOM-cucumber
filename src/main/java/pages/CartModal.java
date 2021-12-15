@@ -28,6 +28,6 @@ public class CartModal extends BasePage{
 
     public int getCartTotal(){
         waitUntilVisibilityOfElement(cartTotalSpan);
-        return Integer.parseInt(cartTotalSpan.getText().toString());
+        return Integer.parseInt(cartTotalSpan.getText());
     }
 }
