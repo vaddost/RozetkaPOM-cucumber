@@ -7,8 +7,8 @@ import listeners.TestNGEventListener;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.Filter;
-import utils.Filters;
+import models.Filter;
+import models.Filters;
 
 import java.io.File;
 import java.util.*;
@@ -53,7 +53,7 @@ public class CartPageTests extends BaseTests{
         var searchResultsPage = getSearchResultsPage();
         log.info("Filter ID - "+ id + ": User is on Search Results Page for search phrase: '" + category + "'");
         searchResultsPage.enterBrandNameInSearchInput(brand);
-        searchResultsPage.clickOnBrandFilterLink(brand);
+        searchResultsPage.clickOnBrandFilterCheckbox(brand);
         searchResultsPage.showOnlyAvailableProducts();
         searchResultsPage.sortProductsByOption("2: expensive");
         searchResultsPage.clickOnFirstProduct();

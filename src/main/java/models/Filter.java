@@ -1,4 +1,4 @@
-package utils;
+package models;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
