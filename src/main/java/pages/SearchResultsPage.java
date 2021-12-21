@@ -26,8 +26,8 @@ public class SearchResultsPage extends BasePage{
     @FindBy(css = "ul.catalog-grid > li:first-child a.goods-tile__heading")
     private WebElement firstProductTileHeadingLink;
 
-    public SearchResultsPage(WebDriver driver) {
-        super(driver);
+    public SearchResultsPage() {
+        super();
     }
 
     public void enterBrandNameInSearchInput(final String brandName){

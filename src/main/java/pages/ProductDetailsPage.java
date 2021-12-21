@@ -16,13 +16,13 @@ public class ProductDetailsPage extends BasePage{
 
     private CartModal cartModal;
 
-    public ProductDetailsPage(WebDriver driver) {
-        super(driver);
+    public ProductDetailsPage() {
+        super();
     }
 
     public void clickBuyButton(){
         buyButton.safeClick();
-        cartModal = new CartModal(driver);
+        cartModal = new CartModal();
     }
 
     public String getProductTitle(){

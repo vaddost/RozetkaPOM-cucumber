@@ -13,8 +13,8 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//button[contains(@class, 'search-form__submit')]")
     private Button searchButton;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public HomePage() {
+        super();
     }
 
     public void enterSearchPhrase(final String searchPhrase){

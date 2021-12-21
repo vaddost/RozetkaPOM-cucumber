@@ -15,8 +15,8 @@ public class CartModal extends BasePage{
     @FindBy(xpath = "//div[@class='cart-receipt__sum-price']/span[contains(@class, 'currency')]/preceding-sibling::span")
     private WebElement cartTotalSpan;
 
-    public CartModal(WebDriver driver) {
-        super(driver);
+    public CartModal() {
+        super();
     }
 
     public List<String> getProductNamesFromCartModal(){

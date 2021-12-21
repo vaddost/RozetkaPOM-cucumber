@@ -5,25 +5,31 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WebDriverManager {
-    private static ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    private static ThreadLocal<WebDriver> driverThreadLocal = null;
 
     private WebDriverManager(){
 
     }
 
-    public static void setDriver(){
+    public static WebDriver getInstance(){
+        if (driverThreadLocal != null){
+            return driverThreadLocal.get();
+        }
+        driverThreadLocal = new ThreadLocal<>();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
         driverThreadLocal.set(new ChromeDriver(options));
-    }
-
-    public static WebDriver getDriver(){
         return driverThreadLocal.get();
     }
 
-    public static void removeInstance(){
-        driverThreadLocal.remove();
+    public static void close(){
+        if (driverThreadLocal.get() == null){
+            driverThreadLocal.remove();
+        } else {
+            driverThreadLocal.get().close();
+        }
+
     }
 
 }

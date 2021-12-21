@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.WebDriverManager;
 
 import java.time.Duration;
 import java.util.List;
@@ -12,8 +13,8 @@ import java.util.List;
 public class BasePage {
     final WebDriver driver;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
+    public BasePage() {
+        this.driver = WebDriverManager.getInstance();
         PageFactory.initElements(new CustomFieldDecorator(driver), this);
     }
 
