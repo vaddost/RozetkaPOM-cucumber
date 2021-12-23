@@ -18,6 +18,10 @@ public class BasePage {
         PageFactory.initElements(new CustomFieldDecorator(driver), this);
     }
 
+    public String getPageUrl(){
+        return driver.getCurrentUrl();
+    }
+
     void waitUntilVisibilityOfElement(WebElement element){
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.visibilityOf(element));

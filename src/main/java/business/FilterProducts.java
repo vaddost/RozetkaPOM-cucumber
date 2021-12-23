@@ -15,4 +15,14 @@ public class FilterProducts {
         searchResultsPage.showOnlyAvailableProducts();
         return this;
     }
+
+    public FilterProducts sortByPriceDesc(){
+        searchResultsPage.sortProductsByOption("2: expensive");
+        return this;
+    }
+
+    public AddToCartFromPDP navigateToFirstProductPage(){
+        searchResultsPage.clickOnFirstProduct();
+        return new AddToCartFromPDP();
+    }
 }

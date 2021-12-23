@@ -2,7 +2,7 @@ package pages;
 
 import elements.Button;
 import elements.TextInput;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.devtools.v85.overlay.model.ColorFormat;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage{
@@ -23,5 +23,13 @@ public class HomePage extends BasePage{
 
     public void clickSearchButton(){
         searchButton.safeClick();
+    }
+
+    public String getSearchButtonBackgroundColor(ColorFormat colorFormat){
+        return searchButton.getButtonBackgroundColor(colorFormat);
+    }
+
+    public String getSearchInputPlaceholder(){
+        return searchInput.getPlaceholderValue();
     }
 }

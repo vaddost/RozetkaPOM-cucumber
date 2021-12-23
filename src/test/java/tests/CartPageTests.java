@@ -1,5 +1,6 @@
 package tests;
 
+import business.MakeSearch;
 import jakarta.xml.bind.JAXBException;
 import listeners.TestNGEventListener;
 import org.testng.annotations.DataProvider;
@@ -10,8 +11,6 @@ import utils.XMLObjectConverter;
 
 import java.util.*;
 
-import static org.testng.Assert.assertTrue;
-
 @Listeners(TestNGEventListener.class)
 public class CartPageTests extends BaseTests{
 
@@ -20,7 +19,8 @@ public class CartPageTests extends BaseTests{
         XMLObjectConverter<Filters> xmlObjectConverter = new XMLObjectConverter<>();
         Optional<Filters> filters = Optional.empty();
         try{
-            filters = Optional.ofNullable(xmlObjectConverter.convertXMLToObject("src/main/resources/filters.xml", Filters.class));
+            filters = Optional.ofNullable(
+                    xmlObjectConverter.convertXMLToObject("src/main/resources/filters.xml", Filters.class));
         } catch (JAXBException e){
             log.error(e.getMessage());
             e.printStackTrace();
@@ -39,30 +39,49 @@ public class CartPageTests extends BaseTests{
 
     @Test(dataProvider = "filters_data")
     public void testAddProductToCart(int id, String category, String brand, int totalPrice){
-        var homePage = getHomePage();
-        homePage.enterSearchPhrase(category);
-        homePage.clickSearchButton();
-
-        var searchResultsPage = getSearchResultsPage();
-        log.info("Filter ID - "+ id + ": User is on Search Results Page for search phrase: '" + category + "'");
-
-        searchResultsPage.sortProductsByOption("2: expensive");
-        searchResultsPage.clickOnFirstProduct();
-
-        var productDetailsPage = getProductDetailsPage();
-        log.info("Filter ID - "+ id + ": User is on Product Details Page");
-        String productTitle = productDetailsPage.getProductTitle();
-        productDetailsPage.clickBuyButton();
-        log.info("Filter ID - "+ id + ": User added product to the Cart");
-        List<String> productNames = productDetailsPage.getCartModal().getProductNamesFromCartModal();
-        int cartTotal = productDetailsPage.getCartModal().getCartTotal();
-
-        assertTrue(productNames.contains(productTitle),
-                "Filter ID - "+ id + ": Given product title is not found in the Cart product list");
-        log.info("Filter ID - "+ id + ": Assert: Product is added to the Cart - SUCCESS");
-
-        assertTrue(cartTotal < totalPrice, "Filter ID - "+ id + ": Actual total price (" + cartTotal
-                    + ") is more than expected total price (" + totalPrice + ")");
-        log.info("Filter ID - "+ id + ": Assert: Actual total price is less than expected - SUCCESS");
+        new MakeSearch()
+                .search(category)
+                .filterResults(brand)
+                .sortByPriceDesc()
+                .navigateToFirstProductPage()
+                .addToCart()
+                    .check()
+                        .verifyIfProductIsPresentInCartModal()
+                        .verifyIfTotalPriceIsLessThanGivenValue(totalPrice);
     }
+
+//    @DataProvider(name = "filter_data")
+//    public Iterator<Object[]>dpFilter(){
+//        XMLObjectConverter<Filter> filterXMLObjectConverter = new XMLObjectConverter<>();
+//        Optional<Filter> filterOptional= Optional.empty();
+//        try {
+//            filterOptional = Optional.ofNullable(
+//                    filterXMLObjectConverter.convertXMLToObject("src/main/resources/filter.xml",Filter.class));
+//        } catch (JAXBException e){
+//            log.error(e.getMessage());
+//            e.printStackTrace();
+//        }
+//        Filter filter = filterOptional.orElseThrow();
+//        return Arrays.stream(new Object[][]{
+//                new Object[] {
+//                        filter.getCategory(),
+//                        filter.getBrand(),
+//                        filter.getTotalPrice()
+//                }
+//        }).iterator();
+//    }
+//
+//    @Test(dataProvider = "filter_data")
+//    public void testAdditionalMethods(String category, String brand, int totalPrice){
+//        var homePage = new HomePage();
+//        System.out.println(homePage.getSearchButtonBackgroundColor(ColorFormat.HEX));
+//        System.out.println(homePage.getSearchInputPlaceholder());
+//        System.out.println(homePage.getSearchButtonBackgroundColor(ColorFormat.RGB));
+//
+//        homePage.enterSearchPhrase(category);
+//        homePage.clickSearchButton();
+//
+//        var searchPage = new SearchResultsPage();
+//        searchPage.getSellStatusCheckboxValues().forEach(System.out::println);
+//    }
 }

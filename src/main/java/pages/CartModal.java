@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,10 +18,10 @@ public class CartModal extends BasePage{
         super();
     }
 
-    public List<String> getProductNamesFromCartModal(){
+    public List<String> getProductUrlsFromCartModal(){
         waitUntilVisibilityOfAllElements(productTitleLinksList);
         return productTitleLinksList.stream()
-                .map(WebElement::getText)
+                .map(x -> x.getAttribute("href"))
                 .collect(Collectors.toList());
     }
 

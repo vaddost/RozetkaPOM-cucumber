@@ -12,4 +12,8 @@ public class TextInput extends Element{
         super.clear();
         super.sendKeys(charSequences);
     }
+
+    public String getPlaceholderValue(){
+        return webElement.getAttribute("placeholder");
+    }
 }

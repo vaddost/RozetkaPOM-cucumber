@@ -18,14 +18,6 @@ public class TestNGEventListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(result.getName()).append("( ");
-        if (result.getParameters().length > 0){
-            for (var res : result.getParameters()){
-                sb.append("'").append(res).append("' ");
-            }
-        }
-        sb.append(") test case is STARTED");
         log.info(getTestMethodSignature(result) + " test case is STARTED");
     }
 
@@ -36,7 +28,7 @@ public class TestNGEventListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) WebDriverManager.getDriver();
+        TakesScreenshot takesScreenshot = (TakesScreenshot) WebDriverManager.getInstance();
         File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
         String name = getTestMethodSignature(result);
         try {

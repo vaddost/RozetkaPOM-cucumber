@@ -1,7 +1,6 @@
 package pages;
 
 import elements.Button;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -21,15 +20,15 @@ public class ProductDetailsPage extends BasePage{
     }
 
     public void clickBuyButton(){
+        moveToProductTitle();
         buyButton.safeClick();
         cartModal = new CartModal();
     }
 
-    public String getProductTitle(){
+    public void moveToProductTitle(){
         waitUntilVisibilityOfElement(productTitle);
         Actions actions = new Actions(driver);
         actions.moveToElement(productTitle).perform();
-        return productTitle.getText();
     }
 
     public CartModal getCartModal(){

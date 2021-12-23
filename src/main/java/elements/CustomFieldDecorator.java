@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.DefaultFieldDecorator;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
-import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 
 import java.lang.reflect.*;
 import java.util.List;
@@ -41,18 +40,16 @@ public class CustomFieldDecorator extends DefaultFieldDecorator {
         Class<?> clazz = field.getType();
         if (List.class.isAssignableFrom(clazz)) {
 
-            // для списка обязательно должна быть задана аннотация
             if (field.getAnnotation(FindBy.class) == null &&
                     field.getAnnotation(FindBys.class) == null) {
                 return null;
             }
 
-            // Список должен быть параметризирован
             Type genericType = field.getGenericType();
             if (!(genericType instanceof ParameterizedType)) {
                 return null;
             }
-            // получаем класс для элементов списка
+
             clazz = (Class<?>) ((ParameterizedType) genericType).
                     getActualTypeArguments()[0];
         }

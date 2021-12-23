@@ -15,4 +15,8 @@ public class Checkbox extends Element {
             System.out.println("Element is already checked!");
         }
     }
+
+    public String getLabelValue(){
+        return webElement.findElement(By.xpath("./following-sibling::label")).getText();
+    }
 }

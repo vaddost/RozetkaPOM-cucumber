@@ -15,7 +15,7 @@ public class Element implements IElement{
 
     public Element(WebElement webElement) {
         this.webElement = webElement;
-        this.driver = WebDriverManager.getDriver();
+        this.driver = WebDriverManager.getInstance();
     }
 
     @Override

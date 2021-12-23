@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchResultsPage extends BasePage{
 
@@ -38,6 +39,7 @@ public class SearchResultsPage extends BasePage{
         int iteration = 1;
         while (true) {
             try {
+                System.out.println(brandFilterCheckboxesList.get(0).getLabelValue());
                 brandFilterCheckboxesList.stream()
                         .filter(x -> x.getAttribute("id").equals(brandName))
                         .findFirst().orElseThrow().check();
@@ -93,5 +95,12 @@ public class SearchResultsPage extends BasePage{
                 iteration++;
             }
         }
+    }
+
+    public List<String> getSellStatusCheckboxValues(){
+        waitUntilVisibilityOfElement(firstProductTileHeadingLink);
+        return sellStatusFilterCheckboxesList.stream()
+                .map(Checkbox::getLabelValue)
+                .collect(Collectors.toList());
     }
 }
