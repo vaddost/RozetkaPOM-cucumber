@@ -1,8 +1,10 @@
 package listeners;
 
+import io.qameta.allure.Attachment;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -28,16 +30,9 @@ public class TestNGEventListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) WebDriverManager.getInstance();
-        File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        takeScreenshot(WebDriverManager.getInstance());
         String name = getTestMethodSignature(result);
-        try {
-            FileHandler.copy(source, new File(propertiesReader.getScreenshotFolderPath() + "/" +
-                    name + ".png"));
-            log.info(name + ": screenshot is saved to " + propertiesReader.getScreenshotFolderPath());
-        } catch (IOException e){
-            log.error(e.getMessage());
-        }
+        log.info(name + ": screenshot is taken");
         log.error(name + " test case is FAILED");
         log.error(result.getThrowable().getMessage());
     }
@@ -52,5 +47,10 @@ public class TestNGEventListener implements ITestListener {
         }
         sb.append(")");
         return sb.toString();
+    }
+
+    @Attachment(value = "screenshot_failure", type = "image/png")
+    public byte[] takeScreenshot(WebDriver driver){
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
