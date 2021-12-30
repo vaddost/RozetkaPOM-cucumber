@@ -1,2 +1,3 @@
-2021-12-23 11:38:07,372  INFO [main] TestNGEventListener:29 - testAdditionalMethods( 'Ноутбуки' 'HP' '200000' ) test case is STARTED
-2021-12-23 11:38:12,769  INFO [main] TestNGEventListener:34 - testAdditionalMethods( 'Ноутбуки' 'HP' '200000' ) test case is PASSED
+2021-12-30 13:08:06,429  INFO [TestNG-PoolService-2] TestNGEventListener:23 - testAddProductToCart( '3' 'Смартфони' 'Apple' '100000' ) test case is STARTED
+2021-12-30 13:08:06,431  INFO [TestNG-PoolService-1] TestNGEventListener:23 - testAddProductToCart( '2' 'Холодильники' 'Samsung' '130000' ) test case is STARTED
+2021-12-30 13:08:06,429  INFO [TestNG-PoolService-0] TestNGEventListener:23 - testAddProductToCart( '1' 'Ноутбуки' 'HP' '200000' ) test case is STARTED
