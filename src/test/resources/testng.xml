@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name = "Smoke Suite" data-provider-thread-count = "3">
-    <test name = "Cart Modal Tests">
-        <classes>
-            <class name = "tests.CartPageTests" />
-        </classes>
-    </test>
-</suite>

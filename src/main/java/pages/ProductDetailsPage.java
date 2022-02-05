@@ -13,8 +13,6 @@ public class ProductDetailsPage extends BasePage{
     @FindBy(xpath = "//h1[@class='product__title']")
     private WebElement productTitle;
 
-    private CartModal cartModal;
-
     public ProductDetailsPage() {
         super();
     }
@@ -22,16 +20,11 @@ public class ProductDetailsPage extends BasePage{
     public void clickBuyButton(){
         moveToProductTitle();
         buyButton.safeClick();
-        cartModal = new CartModal();
     }
 
     public void moveToProductTitle(){
         waitUntilVisibilityOfElement(productTitle);
         Actions actions = new Actions(driver);
         actions.moveToElement(productTitle).perform();
-    }
-
-    public CartModal getCartModal(){
-        return cartModal;
     }
 }

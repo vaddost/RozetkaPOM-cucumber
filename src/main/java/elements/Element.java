@@ -56,6 +56,7 @@ public class Element implements IElement{
 
     @Override
     public String getAttribute(String name) {
+        waitUntilElementIsVisible();
         return webElement.getAttribute(name);
     }
 

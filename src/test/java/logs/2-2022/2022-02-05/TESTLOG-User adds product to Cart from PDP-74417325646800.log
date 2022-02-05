@@ -1,0 +1,18 @@
+02-05-2022 20:40:17 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 61 - 'User adds product to Cart from PDP' scenario is started
+02-05-2022 20:40:23 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: User search for Ноутбуки category --> STARTED
+02-05-2022 20:40:29 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: User search for Ноутбуки category --> PASSED
+02-05-2022 20:40:29 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: User filter results by HP brand --> STARTED
+02-05-2022 20:40:31 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: User filter results by HP brand --> PASSED
+02-05-2022 20:40:31 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: User filter to show only available products --> STARTED
+02-05-2022 20:40:35 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: User filter to show only available products --> PASSED
+02-05-2022 20:40:35 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: User sort products by price in descending order --> STARTED
+02-05-2022 20:40:37 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: User sort products by price in descending order --> PASSED
+02-05-2022 20:40:37 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: User click on first product from grid --> STARTED
+02-05-2022 20:40:39 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: User click on first product from grid --> PASSED
+02-05-2022 20:40:39 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: User click Add to Cart button --> STARTED
+02-05-2022 20:40:41 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: User click Add to Cart button --> PASSED
+02-05-2022 20:40:41 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: Product is displayed in Cart modal --> STARTED
+02-05-2022 20:40:42 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: Product is displayed in Cart modal --> PASSED
+02-05-2022 20:40:42 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 69 - Step: Total price is less than 300000 --> STARTED
+02-05-2022 20:40:42 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 78 - Step: Total price is less than 300000 --> PASSED
+02-05-2022 20:40:43 CucumberEventListener.java INFO  [TestNG-PoolService-0] listeners.CucumberEventListener 92 - Scenario: 'User adds product to Cart from PDP' --> execution is finished

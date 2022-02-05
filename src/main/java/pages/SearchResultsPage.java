@@ -15,14 +15,14 @@ public class SearchResultsPage extends BasePage{
     @FindBy(xpath = "//div[@data-filter-name='producer']//input[@name='searchline']")
     private TextInput brandFilterSearchInput;
 
-    @FindBy(xpath = "//div[@data-filter-name='producer']//ul//a[@class='checkbox-filter__link']//input")
-    private List<Checkbox> brandFilterCheckboxesList;
+    @FindBy(xpath = "//div[@data-filter-name='producer']//a[@class='checkbox-filter__link']")
+    private List<WebElement> brandFilterCheckboxLinksList;
 
     @FindBy(css = ".catalog-settings__sorting > select")
     private WebElement sortDropdown;
 
-    @FindBy(xpath = "//div[@data-filter-name='sell_status']//input")
-    private List<Checkbox> sellStatusFilterCheckboxesList;
+    @FindBy(xpath = "//div[@data-filter-name='sell_status']//a[@class='checkbox-filter__link']")
+    private List<Checkbox> sellStatusFilterCheckboxLinksList;
 
     @FindBy(css = "ul.catalog-grid > li:first-child a.goods-tile__heading")
     private WebElement firstProductTileHeadingLink;
@@ -39,13 +39,13 @@ public class SearchResultsPage extends BasePage{
         int iteration = 1;
         while (true) {
             try {
-                System.out.println(brandFilterCheckboxesList.get(0).getLabelValue());
-                brandFilterCheckboxesList.stream()
-                        .filter(x -> x.getAttribute("id").equals(brandName))
-                        .findFirst().orElseThrow().check();
+                System.out.println(brandName);
+                brandFilterCheckboxLinksList.stream()
+                        .filter(x -> x.getAttribute("data-id").equals(brandName))
+                        .findFirst().orElseThrow().click();
                 break;
             } catch (Exception e) {
-                if (iteration > 2){
+                if (iteration > 5){
                     throw e;
                 }
                 iteration++;
@@ -64,13 +64,13 @@ public class SearchResultsPage extends BasePage{
         int iteration = 1;
         while (true){
             try{
-                sellStatusFilterCheckboxesList.stream()
-                        .filter(x -> x.findElement(By.xpath("./parent::a")).getAttribute("href")
+                sellStatusFilterCheckboxLinksList.stream()
+                        .filter(x -> x.getAttribute("href")
                                 .contains("sell_status=available"))
-                        .findFirst().orElseThrow().check();
+                        .findFirst().orElseThrow().click();
                 break;
             } catch (Exception e){
-                if (iteration > 2){
+                if (iteration > 5){
                     throw e;
                 }
                 iteration++;
@@ -95,12 +95,5 @@ public class SearchResultsPage extends BasePage{
                 iteration++;
             }
         }
-    }
-
-    public List<String> getSellStatusCheckboxValues(){
-        waitUntilVisibilityOfElement(firstProductTileHeadingLink);
-        return sellStatusFilterCheckboxesList.stream()
-                .map(Checkbox::getLabelValue)
-                .collect(Collectors.toList());
     }
 }
